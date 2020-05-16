@@ -15,7 +15,7 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies);
-    yield takeEvery('FETCH_MOVIES_DETAILS', fetchMovieDetails);
+    yield takeEvery('FETCH_MOVIE_DETAILS', fetchMovieDetails);
     yield takeEvery('FETCH_GENRES', fetchGenres);
 
 }
@@ -30,9 +30,10 @@ function* fetchMovies() {
     }
 }
 
-function* fetchGenres() {
+function* fetchGenres(action) {
     try {
-        let genresResponse = yield axios.get('/details?id={action.payload}');
+        console.log("fetchGenres :: ", action.payload);
+        let genresResponse = yield axios.get(`/genres?id=` + action.payload);
         yield put({ type: 'SET_GENRES', payload: genresResponse.data });
     } catch (error) {
         console.log(error);
@@ -40,9 +41,10 @@ function* fetchGenres() {
 }
 
 function* fetchMovieDetails (action) {
-    console.log(action.payload);
+    console.log("fetchMovieDetails :: ", action.payload);
     try {
-        let movieResponse = yield axios.get(`/details?id={action.payload}`)
+        let movieResponse = yield axios.get(`/details?id=` + action.payload)
+        console.log('...---------------', movieResponse);
         yield put({type: 'SET_MOVIE_DETAILS', payload: movieResponse.data});
     }catch(error) {
         console.log(error);
@@ -73,7 +75,7 @@ const genres = (state = [], action) => {
 }
 
 //To store details of a movie clicked
-const details = (state = [], action) => {
+const details = (state = {}, action) => {
     switch (action.type) {
         case 'SET_MOVIE_DETAILS':
             return action.payload;

@@ -6,7 +6,7 @@ const port = process.env.PORT || 5000;
 /** --------- Route includes -----------**/
 const moviesRouter = require('./routes/movies.router')
 const detailsRouter = require('./routes/details.router')
-const genresRouter = require('./routes/details.router')
+const genresRouter = require('./routes/genres.router')
 
 /** ---------- MIDDLEWARE ---------- **/
 app.use(bodyParser.json()); // needed for angular requests

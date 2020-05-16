@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
 import {HashRouter as Router, Route} from 'react-router-dom';
-import { connect } from 'react-redux';
 
 //importing components to App.js
 import Header from '../Header/Header';
 import Home from '../Home/Home';
 import DetailsView from '../DetailsView/DetailsView';
+import Edit from '../Edit/Edit';
 
 class App extends Component {
 
   //mounts this when component gets loaded
-  componentDidMount() {
-    this.props.dispatch({type: 'FETCH_MOVIES'});
-  }
+  // componentDidMount() {
+  //   this.props.dispatch({type: 'FETCH_MOVIES'});
+  //   this.props.dispatch({ type: 'FETCH_GENRES' })
+  // }
 
   // Renders the entire app on the DOM
   render() {
@@ -24,11 +25,12 @@ class App extends Component {
        <Router>
          <Route exact path="/" component={Home}/>
           <Route path="/details" component={DetailsView}/>
+          <Route path="/edit" component={Edit} />
        </Router>
       </div>
     );
   }
 }
 
-export default connect()(App);
+export default (App);
 
