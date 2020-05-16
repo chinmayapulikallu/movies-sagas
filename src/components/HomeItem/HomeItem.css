@@ -1,0 +1,10 @@
+
+.movie-page {
+    display: flex;
+}
+
+.movie-page > div {
+    margin: 10px;
+    padding: 20px;
+    text-align: left;
+}

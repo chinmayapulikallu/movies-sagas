@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 //importing components to App.js
 import Header from '../Header/Header';
 import Home from '../Home/Home';
+import DetailsView from '../DetailsView/DetailsView';
 
 class App extends Component {
 
@@ -22,6 +23,7 @@ class App extends Component {
        {/* Routes for components, Home component is the Home page */}
        <Router>
          <Route exact path="/" component={Home}/>
+         <Route path= "/details" component={DetailsView}/>
        </Router>
       </div>
     );

@@ -1,13 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './HomeItem.css';
+// import {withRouter} from 'react-router-dom';
 
 class HomeItem extends Component {
+
+    componentDidMount() {
+        this.getMovies();
+    }
+
+    getMovies = () => {
+        this.props.dispatch({type: 'FETCH_MOVIES'})
+    }
+
+    // On clicking movie poster, posterClick function gets called
+    // and moves to /details page.
+    posterClick = () => {
+        console.log('in posterClick');
+        //  this.props.history.push('/details')
+        
+
+    }
+
+
     render() {
         return (
-            <div>
-                <img src={this.props.movie.poster} alt={this.props.movie.title}/>
-                <div>
-                    {this.props.movie.description}
+            <div className="movie-page">
+            <div className="movie-display left">
+                <img src={this.props.movie.poster} alt={this.props.movie.title} 
+                onClick={this.posterClick}/>
+            </div>
+                <div className="movie-display right">
+                    <h1>{this.props.movie.title}</h1>
+                    <p>{this.props.movie.description}</p>
                 </div>
             </div>
         )
@@ -15,6 +40,7 @@ class HomeItem extends Component {
 }
 
 
-const putReduxStateOnProps = (reduxState) => ({ reduxState })
+const putReduxStateOnProps = (reduxState) => ({
+    movies: reduxState.movies })
 
 export default connect(putReduxStateOnProps)(HomeItem);
