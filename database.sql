@@ -103,3 +103,8 @@ INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (13,9);
 INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (13,6);
 INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (14,4);
 INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (14,2);
+
+
+SELECT name from movies JOIN movies_genres ON
+movies.id = movies_genres.movies_id
+JOIN genres ON genres.id = movies_genres.genres_id WHERE movies.id = 2;
