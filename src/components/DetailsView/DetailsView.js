@@ -4,11 +4,9 @@ import { withRouter } from 'react-router-dom';
 import './DetailsView.css';
 
 class DetailsView extends Component {
-
-
     componentDidMount() {
         this.getMovieDetails();
-        this.getGenres()
+        this.getGenres();
     }
 
     // generes of movie clicked
@@ -29,8 +27,8 @@ class DetailsView extends Component {
     }
 
     //edit function transfers moves to edit page from /details
-    edit = () => {
-        console.log('in edit page');
+    edit = (id) => {
+        console.log('in edit page', id);
         this.props.history.push('/edit');
     }
 

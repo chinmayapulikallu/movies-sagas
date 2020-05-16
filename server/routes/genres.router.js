@@ -2,17 +2,6 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-// //to get all the genres from database
-// router.get('/', (req, res) => {
-//     let query = `SELECT * FROM "genres"`;
-//     pool.query(query).then(result => {
-//         res.send(result.rows);
-//     }).catch(error => {
-//         console.log(err);
-//         res.sendStatus(500);
-//     })
-// })
-
 
 // GET router to get the selected movie genres from the database
 router.get('/', (req, res) => {
@@ -25,7 +14,7 @@ router.get('/', (req, res) => {
    .then(result => {
         res.send(result.rows);
     }).catch(error => {
-        console.log(err);
+        console.log(error);
         res.sendStatus(500);
     })
 })
