@@ -17,4 +17,10 @@
 .movie-details {
     margin-top: 10%;
     text-align: left; 
+    padding: 1%;
+    background-color: rgb(230, 195, 120);
+}
+
+.clear-line {
+    clear:both;
 }

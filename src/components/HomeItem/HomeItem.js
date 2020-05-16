@@ -5,29 +5,11 @@ import {withRouter} from 'react-router-dom';
 
 class HomeItem extends Component {
 
-    // componentDidMount() {
-    //     this.getMovies();
-    // }
-
-    // //getMovies displays movies list on home page
-    // getMovies = () => {
-    //     this.props.dispatch({type: 'FETCH_MOVIES'})
-    // }
-
-    // On clicking movie poster, posterClick function gets called
-    // and moves to /details page.
+    
     posterClick = (event, id) => {
-        console.log('in posterClick', event, id);
-        this.props.dispatch({type: 'FETCH_MOVIE_DETAILS', payload: id})
-        // this.getGenres(event, id);
         this.props.history.push({pathname: '/details', state: id})
     }
 
-    //To get genres from the database
-    // getGenres = (event, id) => {
-    //     console.log('in posterClick', event);
-    //     this.props.dispatch({type: 'FETCH_GENRES', payload: id})
-    // }
 
 
     render() {

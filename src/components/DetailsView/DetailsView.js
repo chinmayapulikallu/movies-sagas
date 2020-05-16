@@ -44,8 +44,9 @@ class DetailsView extends Component {
                     <button className="back-button" onClick={this.backToList}>Back To List</button>
                      <button className="edit-button" onClick={this.edit}>Edit Movie</button>
                 </div>
+                <div className="clear-line"></div>
                 <div className="movie-details">
-                    <h1>{this.props.details.title}</h1>
+                    <h1>Movie:  {this.props.details.title}</h1>
                     <p>{this.props.details.description}</p>
                          <h2>Genres</h2>
                     <ul>
