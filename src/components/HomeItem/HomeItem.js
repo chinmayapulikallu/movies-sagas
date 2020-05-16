@@ -17,6 +17,7 @@ class HomeItem extends Component {
     // and moves to /details page.
     posterClick = () => {
         console.log('in posterClick',this);
+        
         this.props.history.push('/details')
         
 

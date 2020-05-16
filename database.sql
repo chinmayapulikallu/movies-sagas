@@ -55,3 +55,51 @@ VALUES
 ('Science Fiction'),
 ('Space-Opera'),
 ('Superhero');
+
+
+---------JUNCTION TABLE -----------
+
+CREATE TABLE "movies_genres" (
+"id" SERIAL PRIMARY KEY,
+"movies_id" INT,
+"genres_id" INT
+);
+
+
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (1,1);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (1,8);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (1,11);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (2,10);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (2,9);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (2,6);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (3,1);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (3,13);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (1,8);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (4,2);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (4,4);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (5,6);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (5,5);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (6,1);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (6,6);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (6,8);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (6,7);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (7,1);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (7,10);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (8,1);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (8,6);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (8,8);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (9,2);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (9,4);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (10,1);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (10,11);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (10,12);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (11,6);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (11,11);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (11,1);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (12,6);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (12,3);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (13,10);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (13,9);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (13,6);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (14,4);
+INSERT INTO "movies_genres" ("movies_id", "genres_id") VALUES (14,2);
