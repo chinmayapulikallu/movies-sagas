@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './HomeItem.css';
-// import {withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 class HomeItem extends Component {
 
@@ -16,8 +16,8 @@ class HomeItem extends Component {
     // On clicking movie poster, posterClick function gets called
     // and moves to /details page.
     posterClick = () => {
-        console.log('in posterClick');
-        //  this.props.history.push('/details')
+        console.log('in posterClick',this);
+        this.props.history.push('/details')
         
 
     }
@@ -43,4 +43,4 @@ class HomeItem extends Component {
 const putReduxStateOnProps = (reduxState) => ({
     movies: reduxState.movies })
 
-export default connect(putReduxStateOnProps)(HomeItem);
+export default withRouter(connect(putReduxStateOnProps)(HomeItem));

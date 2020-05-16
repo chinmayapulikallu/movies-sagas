@@ -23,7 +23,7 @@ class App extends Component {
        {/* Routes for components, Home component is the Home page */}
        <Router>
          <Route exact path="/" component={Home}/>
-         <Route path= "/details" component={DetailsView}/>
+          <Route path="/details" component={DetailsView}/>
        </Router>
       </div>
     );
