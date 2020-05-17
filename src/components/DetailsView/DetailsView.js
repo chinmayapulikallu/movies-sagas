@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import './DetailsView.css';
 
 class DetailsView extends Component {
+
     componentDidMount() {
         this.getMovieDetails();
         this.getGenres();
@@ -36,8 +37,6 @@ class DetailsView extends Component {
         this.props.history.push('/edit');
     }
 
-
-
     render() {
         console.log("detail view  :: ", this)
         return (
@@ -51,6 +50,7 @@ class DetailsView extends Component {
                     <h1>Movie:  {this.props.details.title}</h1>
                     <p>{this.props.details.description}</p>
                          <h2>Genres</h2>
+                         {/* using map to display genres on DOM */} 
                     <ul>
                         {this.props.genres.map((genre, index)=> 
                         <li key={index}>{genre.name}</li>)}

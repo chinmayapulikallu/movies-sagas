@@ -19,11 +19,13 @@ class Edit extends Component {
         })
     }
 
+    //navigates to details page when cancel button is clicked
     clickCancel = () => {
         console.log('in clickCancel');
         this.props.history.push('/details')
     }
 
+    //sets the state title when there is a new input
     handleMovieChange = (event) => {
         console.log('in handleMovieChange')
         this.setState({
@@ -31,6 +33,7 @@ class Edit extends Component {
         })
     }
 
+    //sets the state description when there is a new description update//
     handleTextChange = (event) => {
         console.log('in handleTextChange')
          this.setState({
@@ -38,6 +41,7 @@ class Edit extends Component {
         })
     }
 
+    //updates database through axios when there is a change in state
     saveUpdate = () => {
         console.log('in save update', this.state)
         axios.put('/update', this.state)
@@ -51,9 +55,7 @@ class Edit extends Component {
           
     }
 
-
     render() {
-        console.log('state in edit-------->', this.state)
         return (
             <div>
                 <div className="edit-button">

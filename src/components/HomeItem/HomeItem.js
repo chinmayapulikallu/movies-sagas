@@ -5,12 +5,10 @@ import {withRouter} from 'react-router-dom';
 
 class HomeItem extends Component {
 
-    
+    //when a movie poster is clicked calls this function
     posterClick = (event, id) => {
         this.props.history.push({pathname: '/details', state: id})
     }
-
-
 
     render() {
         return (
@@ -22,6 +20,7 @@ class HomeItem extends Component {
                 <div className="movie-display right">
                     <h1>{this.props.movie.title}</h1>
                     <p>{this.props.movie.description}</p>
+                    {/* using map to display genres on DOM */}
                     <ul>
                         {this.props.movie.genres_names.map((genre,index)=>
                        <li key={index}>{genre}</li> 

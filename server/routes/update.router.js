@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
+
+//put router to update the database when there is a change
 router.put('/', (req,res) => {
     let id = req.body.id;
     let title = req.body.title;

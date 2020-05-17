@@ -17,9 +17,8 @@ class Home extends Component {
         return (
             <div>
                 <h1>Movies List</h1>
-                {/* <p>{JSON.stringify(this.props.reduxState.movies)}</p>  */}
-                
-                    {this.props.reduxState.movies.map((movie,index) => <HomeItem key ={index} movie={movie}/>)}
+                {/* using map function to map through array from reduxsate and display movie details*/}
+                {this.props.reduxState.movies.map((movie,index) => <HomeItem key ={index} movie={movie}/>)}
             </div>
         )
     }

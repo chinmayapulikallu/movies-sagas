@@ -30,6 +30,7 @@ function* fetchMovies() {
     }
 }
 
+//Creating a fetchGenres generator function to get genre of movie selected from database through axios
 function* fetchGenres(action) {
     try {
         console.log("fetchGenres :: ", action.payload);
@@ -40,6 +41,7 @@ function* fetchGenres(action) {
     }
 }
 
+//Creating  generator function to get movie details of selected movie from database through axios
 function* fetchMovieDetails (action) {
     console.log("fetchMovieDetails :: ", action.payload);
     try {
