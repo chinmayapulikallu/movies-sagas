@@ -22,6 +22,12 @@ class HomeItem extends Component {
                 <div className="movie-display right">
                     <h1>{this.props.movie.title}</h1>
                     <p>{this.props.movie.description}</p>
+                    <ul>
+                        {this.props.movie.genres_names.map((genre,index)=>
+                       <li key={index}>{genre}</li> 
+                       )}
+                        
+                    </ul>
                 </div>
             </div>
         )
