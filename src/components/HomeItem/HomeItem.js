@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './HomeItem.css';
 import {withRouter} from 'react-router-dom';
+//material-ui
+
 
 class HomeItem extends Component {
 

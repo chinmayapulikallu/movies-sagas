@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './DetailsView.css';
+//material-ui
+import {Button} from '@material-ui/core';
+
 
 class DetailsView extends Component {
 
@@ -42,8 +45,10 @@ class DetailsView extends Component {
         return (
             <div>
                 <div className="details-view">
-                    <button className="back-button" onClick={this.backToList}>Back To List</button>
-                     <button className="edit-button" onClick={this.edit}>Edit Movie</button>
+                    <Button color="primary" variant="contained" className="back-button" 
+                            onClick={this.backToList}>Back To List</Button>
+                     <Button color="primary" variant="contained" className="edit-button" 
+                             onClick={this.edit}>Edit Movie</Button>
                 </div>
                 <div className="clear-line"></div>
                 <div className="movie-details">

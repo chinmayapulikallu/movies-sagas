@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './Edit.css';
 import axios from 'axios';
+//material
+import { Button } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
+
 
 class Edit extends Component {
 
@@ -59,13 +63,15 @@ class Edit extends Component {
         return (
             <div>
                 <div className="edit-button">
-                    <button className="cancel-button" onClick={this.clickCancel}>Cancel</button>
-                    <button className="save-button" onClick={this.saveUpdate}>Save</button>
+                    <Button color="primary" variant="contained"className="cancel-button"
+                             onClick={this.clickCancel}>Cancel</Button>
+                    <Button color="primary" variant="contained"className="save-button" 
+                            onClick={this.saveUpdate}>Save</Button>
                 </div>
                 <div className="clear-inputs"></div>
                 <div className="input-div">
-                    <input type="text"  value={this.state.title} onChange={this.handleMovieChange} />
-                    <textarea  rows="10" cols="50" onChange={this.handleTextChange} value={this.state.description} />
+                    <TextField id="outlined-basic" variant="outlined" type="text"  value={this.state.title} onChange={this.handleMovieChange} />
+                    <textarea rows="9" cols="50" type="text" onChange={this.handleTextChange} value={this.state.description} />
                 </div>
                 <div className="clear-line"></div>
                 <div className="movie-details">
