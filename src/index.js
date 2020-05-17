@@ -11,7 +11,7 @@ import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios'; 
-import 'typeface-roboto';
+
 
 // Create the rootSaga generator function
 function* rootSaga() {

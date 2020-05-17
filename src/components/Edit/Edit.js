@@ -63,9 +63,9 @@ class Edit extends Component {
         return (
             <div>
                 <div className="edit-button">
-                    <Button color="primary" variant="contained"className="cancel-button"
+                    <Button size="large" color="primary" variant="contained"className="cancel-button"
                              onClick={this.clickCancel}>Cancel</Button>
-                    <Button color="primary" variant="contained"className="save-button" 
+                    <Button size="large" color="primary" variant="contained"className="save-button" 
                             onClick={this.saveUpdate}>Save</Button>
                 </div>
                 <div className="clear-inputs"></div>

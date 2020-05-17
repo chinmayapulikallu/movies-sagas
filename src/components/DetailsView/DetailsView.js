@@ -45,9 +45,9 @@ class DetailsView extends Component {
         return (
             <div>
                 <div className="details-view">
-                    <Button color="primary" variant="contained" className="back-button" 
+                    <Button color="primary" variant="contained" size="large" className="back-button" 
                             onClick={this.backToList}>Back To List</Button>
-                     <Button color="primary" variant="contained" className="edit-button" 
+                     <Button color="primary" variant="contained" size="large" className="edit-button" 
                              onClick={this.edit}>Edit Movie</Button>
                 </div>
                 <div className="clear-line"></div>
