@@ -4,7 +4,15 @@ import { withRouter } from 'react-router-dom';
 import './DetailsView.css';
 //material-ui
 import {Button} from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 
+//styles using material UI
+const useStyles = (theme) => ({
+    margin: {
+        margin: theme.spacing.unit
+    }
+   
+});
 
 class DetailsView extends Component {
 
@@ -15,16 +23,18 @@ class DetailsView extends Component {
 
     // generes of movie clicked
     getGenres = () => {
-        console.log('in getGenres', this.props.location.state);
-        if(this.props.location.state) {
-            this.props.dispatch({ type: 'FETCH_GENRES', payload: this.props.location.state })
+        console.log('in getGenres', this.props.match.params.id);
+        const id = this.props.match.params.id
+        if (id) {
+            this.props.dispatch({ type: 'FETCH_GENRES', payload: id })
         }
     }
 
     //getMovieDetails to display movie details of the clicked movie 
     getMovieDetails = () => {
-        if(this.props.location.state) {
-            this.props.dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: this.props.location.state })
+        const id = this.props.match.params.id
+        if (id) {
+            this.props.dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: id })
         }
     }
  
@@ -35,19 +45,22 @@ class DetailsView extends Component {
     }
 
     //edit function transfers moves to edit page from /details
-    edit = (id) => {
+    edit = () => {
+        const id = this.props.match.params.id
         console.log('in edit page', id);
-        this.props.history.push('/edit');
+        this.props.history.push('/edit/'+id);
     }
 
     render() {
+        //
+        const {classes} =this.props;
         console.log("detail view  :: ", this)
         return (
             <div>
                 <div className="details-view">
-                    <Button color="primary" variant="contained" size="large" className="back-button" 
+                    <Button color="secondary" variant="contained" size="large" className={classes.margin}  
                             onClick={this.backToList}>Back To List</Button>
-                     <Button color="primary" variant="contained" size="large" className="edit-button" 
+                    <Button color="primary" variant="contained" size="large" className={classes.margin} 
                              onClick={this.edit}>Edit Movie</Button>
                 </div>
                 <div className="clear-line"></div>
@@ -71,4 +84,4 @@ const putReduxStateOnProps = (reduxState) => ({
     genres: reduxState.genres
 })
 
-export default withRouter(connect(putReduxStateOnProps)(DetailsView));
+export default (withStyles(useStyles))(withRouter(connect(putReduxStateOnProps)(DetailsView)));

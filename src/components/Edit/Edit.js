@@ -3,13 +3,29 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './Edit.css';
 import axios from 'axios';
-//material
+//material-ui
 import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
+import { withStyles } from '@material-ui/core/styles';
+
+
+//styles using material-ui
+const useStyles = (theme) => ({
+    margin: {
+        margin: theme.spacing.unit,
+    },
+    textField: {
+        marginLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit,
+        width: 300,
+        padding: 50
+    }
+
+});
 
 
 class Edit extends Component {
-
+    
     state ={
         id: this.props.details.id,
         title: '',
@@ -25,8 +41,9 @@ class Edit extends Component {
 
     //navigates to details page when cancel button is clicked
     clickCancel = () => {
+        const id = this.props.details.id
         console.log('in clickCancel');
-        this.props.history.push('/details')
+        this.props.history.push('/details/' + id)
     }
 
     //sets the state title when there is a new input
@@ -48,10 +65,11 @@ class Edit extends Component {
     //updates database through axios when there is a change in state
     saveUpdate = () => {
         console.log('in save update', this.state)
+        const id = this.props.details.id
         axios.put('/update', this.state)
           .then(response => {
               console.log(response)
-              this.props.history.push({ pathname: '/details', state: this.state.id })
+              this.props.history.push({ pathname: '/details/'+id, state: this.state.id })
           }).catch(error => {
             alert(`couldn't update the database, try later`);
             console.log(error);
@@ -60,18 +78,21 @@ class Edit extends Component {
     }
 
     render() {
+        //to get classes from props, from with styles
+        const { classes } = this.props;
         return (
             <div>
                 <div className="edit-button">
-                    <Button size="large" color="primary" variant="contained"className="cancel-button"
+                    <Button size="large" color="secondary" variant="contained" className={classes.margin}
                              onClick={this.clickCancel}>Cancel</Button>
-                    <Button size="large" color="primary" variant="contained"className="save-button" 
+                    <Button size="large" color="primary" variant="contained" className={classes.margin} 
                             onClick={this.saveUpdate}>Save</Button>
                 </div>
                 <div className="clear-inputs"></div>
                 <div className="input-div">
-                    <TextField id="outlined-basic" variant="outlined" type="text"  value={this.state.title} onChange={this.handleMovieChange} />
+                    <TextField id="outlined-basic" variant="outlined" type="text" className={classes.textField}  value={this.state.title} onChange={this.handleMovieChange} />
                     <textarea rows="9" cols="50" type="text" onChange={this.handleTextChange} value={this.state.description} />
+               
                 </div>
                 <div className="clear-line"></div>
                 <div className="movie-details">
@@ -93,4 +114,4 @@ const putReduxStateOnProps = (reduxState) => ({
     details: reduxState.details,
     genres: reduxState.genres
 })
-export default withRouter(connect(putReduxStateOnProps)(Edit));
+export default (withStyles(useStyles))(withRouter(connect(putReduxStateOnProps)(Edit)));

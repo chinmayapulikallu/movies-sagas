@@ -12,13 +12,11 @@ import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios'; 
 
-
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies);
     yield takeEvery('FETCH_MOVIE_DETAILS', fetchMovieDetails);
     yield takeEvery('FETCH_GENRES', fetchGenres);
-
 }
 
 //Creating a fetchMovies generator function to get movies from database through axios
@@ -101,6 +99,8 @@ const storeInstance = createStore(
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
+ReactDOM.render(
+        <Provider store={storeInstance}><App /></Provider>
+, 
     document.getElementById('root'));
 registerServiceWorker();

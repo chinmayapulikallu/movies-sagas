@@ -9,7 +9,7 @@ class HomeItem extends Component {
 
     //when a movie poster is clicked calls this function
     posterClick = (event, id) => {
-        this.props.history.push({pathname: '/details', state: id})
+        this.props.history.push({pathname: '/details/'+id, state: id})
     }
 
     render() {
