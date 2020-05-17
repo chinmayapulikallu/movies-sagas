@@ -12,6 +12,13 @@ class Edit extends Component {
         description: ''
     }
 
+    componentDidMount() {
+        this.setState({
+            title: this.props.details.title,
+            description: this.props.details.description
+        })
+    }
+
     clickCancel = () => {
         console.log('in clickCancel');
         this.props.history.push('/details')
@@ -55,8 +62,8 @@ class Edit extends Component {
                 </div>
                 <div className="clear-inputs"></div>
                 <div className="input-div">
-                    <input type="text" placeholder="Movie Name" onChange={this.handleMovieChange} />
-                    <textarea  rows="10" cols="50" onChange={this.handleTextChange} />
+                    <input type="text"  value={this.state.title} onChange={this.handleMovieChange} />
+                    <textarea  rows="10" cols="50" onChange={this.handleTextChange} value={this.state.description} />
                 </div>
                 <div className="clear-line"></div>
                 <div className="movie-details">

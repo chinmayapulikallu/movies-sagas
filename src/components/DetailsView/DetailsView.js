@@ -12,12 +12,16 @@ class DetailsView extends Component {
     // generes of movie clicked
     getGenres = () => {
         console.log('in getGenres', this.props.location.state);
-        this.props.dispatch({ type: 'FETCH_GENRES', payload: this.props.location.state })
+        if(this.props.location.state) {
+            this.props.dispatch({ type: 'FETCH_GENRES', payload: this.props.location.state })
+        }
     }
 
     //getMovieDetails to display movie details of the clicked movie 
     getMovieDetails = () => {
-        this.props.dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: this.props.location.state })
+        if(this.props.location.state) {
+            this.props.dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: this.props.location.state })
+        }
     }
  
    //backToList function transfers page from details to /home 
