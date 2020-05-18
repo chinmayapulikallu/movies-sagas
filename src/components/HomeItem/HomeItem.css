@@ -1,6 +1,6 @@
 
 .movie-page {
-    display: flex;
+    display: inline-block;
 }
 
 .movie-page > div {

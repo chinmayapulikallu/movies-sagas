@@ -8,7 +8,7 @@ import DetailsView from '../DetailsView/DetailsView';
 import Edit from '../Edit/Edit';
 //material-ui
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
-import {orange, teal, cyan, white} from '@material-ui/core/colors';
+import {orange, teal} from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
   palette: {
